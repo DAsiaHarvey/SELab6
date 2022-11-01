@@ -1,7 +1,7 @@
 ﻿namespace Lab6Starter;
 /**
  * 
- * Name: 
+ * Name: D'Asia Harvey, Justin Vang
  * Date: How about this?
  * Description:
  * Bugs:
@@ -108,7 +108,17 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void ResetGame()
     {
+        //TicTacToeGame.ResetGame();
 
+        for (int row = 0; row < TicTacToeGame.GRID_SIZE; row++)
+        {
+            for(int col = 0; col < TicTacToeGame.GRID_SIZE; col++)
+            {
+                grid[row, col].Text = "";
+            }
+        }
+
+       
     }
 
 }
