@@ -18,8 +18,9 @@ using Lab6Starter;
 public partial class MainPage : ContentPage
 {
     TicTacToeGame ticTacToe; // model class
-    Button[,] grid;          // stores the buttons
-
+    Button[,] grid;          // stores the
+    int ScoreForX;
+    int ScoreForO;
 
     /// <summary>
     /// initializes the component
@@ -29,6 +30,9 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         ticTacToe = new TicTacToeGame();
         grid = new Button[TicTacToeGame.GRID_SIZE, TicTacToeGame.GRID_SIZE] { { Tile00, Tile01, Tile02 }, { Tile10, Tile11, Tile12 }, { Tile20, Tile21, Tile22 } };
+        ScoreForX = ticTacToe.XScore;
+        ScoreForO = ticTacToe.OScore;
+
     }
 
     /// <summary>
@@ -96,9 +100,16 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void CelebrateVictory(Player victor)
     {
+        Player currentPlayer = ticTacToe.CurrentPlayer;
+        String Winner = currentPlayer.ToString();
+        DisplayAlert("Congratulations", $" Player {Winner} You are the big winner today!", " Play Again");
         //MessageBox.Show(Application.Current.MainWindow, String.Format("Congratulations, {0}, you're the big winner today", victor.ToString()));
-        XScoreLBL.Text = String.Format("X's Score: {0}", ticTacToe.XScore);
-        OScoreLBL.Text = String.Format("O's Score: {0}", ticTacToe.OScore);
+        if (Winner == Player.X.ToString()) {
+            XScoreLBL.Text = String.Format($"X's Score: {ScoreForX++}");
+        }
+        else {
+            OScoreLBL.Text = String.Format($"O's Score: {ScoreForO++}");
+        }
 
         ResetGame();
     }
@@ -108,7 +119,7 @@ public partial class MainPage : ContentPage
     /// </summary>
     private void ResetGame()
     {
-        //TicTacToeGame.ResetGame();
+        
 
         for (int row = 0; row < TicTacToeGame.GRID_SIZE; row++)
         {
@@ -118,6 +129,7 @@ public partial class MainPage : ContentPage
             }
         }
 
+        ticTacToe.ResetGame();
        
     }
 

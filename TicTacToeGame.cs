@@ -23,7 +23,7 @@ internal class TicTacToeGame
 {
     internal const int GRID_SIZE = 3;
     Player[,] grid = new Player[GRID_SIZE, GRID_SIZE];
-    int[] scores = { 0, 0 };
+    int[] scores = { 1, 1 };
 
     /// <summary>
     /// The player about to make a move
@@ -52,7 +52,7 @@ internal class TicTacToeGame
     {
         get
         {
-            return scores[(int)Player.X];
+            return scores[0];
         }
     }
 
@@ -63,7 +63,7 @@ internal class TicTacToeGame
     {
         get
         {
-            return scores[(int)Player.O];
+            return scores[1];
         }
     }
 
