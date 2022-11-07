@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Tic Tac Toe"
+        Title="Tic Tac Toe Game"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
